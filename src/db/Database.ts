@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 import { DatabaseOptions } from '../interfaces/DatabaseOptions';
 import { DatabaseSchema, ParsedSchema } from '../interfaces/DatabaseSchema';
+import { DatabaseModule } from './DatabaseModule';
 
 // database manager
 class Database {
@@ -17,6 +18,8 @@ class Database {
 			});
 		});
 	}
-	public load(schema: string) {}
+	public load(schema: string): DatabaseModule {
+		return new DatabaseModule(this.schemas.get(schema));
+	}
 }
 export { Database };
