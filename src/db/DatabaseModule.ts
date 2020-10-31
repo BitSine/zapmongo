@@ -10,7 +10,7 @@ class DatabaseModule {
 		this._schema = schema;
 	}
 	public async create(data: object): Promise<Document> {
-		return new this._schema.data(data);
+		return await new this._schema.data(data).save();
 	}
 	public async update(searchData: object, updateData: object): Promise<Document> {
 		const model = await this._schema.data.findOne(searchData);
