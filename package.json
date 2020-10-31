@@ -67,5 +67,6 @@
 	},
 	"dependencies": {
 		"mongoose": "^5.10.11"
-	}
+	},
+	"types": "index.d.ts"
 }

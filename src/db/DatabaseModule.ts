@@ -62,12 +62,15 @@ class DatabaseModule {
 		const Data = await this._schema.data.find(data);
 		return Data;
 	}
-	public async delete(data: object) {
+	public async delete(data: object): Promise<boolean> {
 		const Data = await this.findOne(data); // get data
 		if (!Data) return false;
 		// if no data, return false
 		else await Data.deleteOne(); // if exists delete
 		return true; // return true because the data exists & was deleted
+	}
+	public async remove(data: object): Promise<boolean> {
+		return await this.delete(data);
 	}
 	public async set(data: object): Promise<Document> {
 		return await this.update(data, data);
