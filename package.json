@@ -1,6 +1,6 @@
 {
 	"name": "zapmongo",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"description": "",
 	"main": "dist/index.js",
 	"scripts": {
@@ -72,5 +72,5 @@
 	"repository": {
 		"type": "git",
 		"url": "git+https://github.com/BitSine/zapmongo.git"
-	  }
+	}
 }
