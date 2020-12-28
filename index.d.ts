@@ -22,6 +22,6 @@ declare class Database {
 	public options: DatabaseOptions;
 	public schemas: Map<string, ParsedSchema>;
 	public constructor(options: DatabaseOptions);
-	public load(schema: string): DatabaseModule;
+	public load(schema: string): Promise<DatabaseModule>;
 }
 export { Database, DatabaseModule };

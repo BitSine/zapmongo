@@ -32,7 +32,7 @@ const db = new Database({ mongoURI: 'my-super-secret-mongo-uri-here', schemas: [
 **Load a schema**
 
 ```js
-const Schema = db.load('hello');
+const Schema = await db.load('hello');
 ```
 
 **Update/create data**

@@ -1,7 +1,7 @@
-import { ParsedSchema } from '../interfaces/DatabaseSchema';
+import { ParsedSchema } from './interfaces/DatabaseSchema';
 import { Document } from 'mongoose';
-import { Anything } from '../interfaces/Anything';
-import { SortFunction } from '../interfaces/SortFunction';
+import { Anything } from './interfaces/Anything';
+import { SortFunction } from './interfaces/SortFunction';
 
 // database module
 class DatabaseModule {
