@@ -58,7 +58,7 @@ class DatabaseModule {
 		const HandeledData: Array<Document> = Data.length > 9 ? Data.slice(0, 10) : Data;
 		return HandeledData;
 	}
-	public async find(data: object) {
+	public async find(data: object): Promise<Array<any>> {
 		const Data = await this._schema.data.find(data);
 		return Data;
 	}
