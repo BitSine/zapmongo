@@ -17,6 +17,7 @@ class Database {
 				data: mongoose.model(value.name, new mongoose.Schema(value.data)),
 			});
 		});
+		mongoose.connect(options.mongoURI);
 	}
 	public async load(schema: string): Promise<DatabaseModule> {
 		return new DatabaseModule(this.schemas.get(schema));
