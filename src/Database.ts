@@ -6,7 +6,7 @@ import { DatabaseModule } from './DatabaseModule';
 // database manager
 class Database {
 	public options: DatabaseOptions;
-	public schemas: Map<string, ParsedSchema>;
+	public schemas: Map<string, ParsedSchema> = new Map();
 	public constructor(options: DatabaseOptions) {
 		// set config
 		this.options = options;
