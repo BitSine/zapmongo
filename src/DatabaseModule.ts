@@ -26,7 +26,11 @@ class DatabaseModule {
 	public async findOne(searchData: object): Promise<Document> {
 		return await this._schema.data.findOne(searchData);
 	}
-	public async increment(search: object, key: string, value: number) {
+	public async increment(
+		search: object,
+		key: string,
+		value: number,
+	): Promise<Document> {
 		// increment a number by whatever
 		const data = await this.findOne(search);
 		if (!data) {
@@ -39,7 +43,11 @@ class DatabaseModule {
 			return data;
 		}
 	}
-	public async decrement(search: object, key: string, value: number) {
+	public async decrement(
+		search: object,
+		key: string,
+		value: number,
+	): Promise<Document> {
 		// decrement a number by whatever
 		const data = await this.findOne(search);
 		if (!data) {
@@ -52,13 +60,13 @@ class DatabaseModule {
 			return data;
 		}
 	}
-	public async leaderboard(sort: SortFunction) {
+	public async leaderboard(sort: SortFunction): Promise<Array<Document>> {
 		// create a leaderboard
 		const Data: Array<Document> = [...(await this.find({}))].sort(sort);
 		const HandeledData: Array<Document> = Data.length > 9 ? Data.slice(0, 10) : Data;
 		return HandeledData;
 	}
-	public async find(data: object): Promise<Array<any>> {
+	public async find(data: object): Promise<Array<Document>> {
 		const Data = await this._schema.data.find(data);
 		return Data;
 	}
