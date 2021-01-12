@@ -56,30 +56,7 @@ await Schema.find({ name: 'hello' }); // returns all data that has name as "worl
 await Schema.delete({ name: 'hello' }); // would delete the first piece of data it finds that has name as 'world!'
 ```
 
-**NEW! 2.0.0+**
 
-**Render data**
-
-When creating a schema, make sure to pass render as a string, this is optional.
-
-Example:
-
-```js
-{
-    name: 'hello',
-    data: {
-        name: String,
-        location: String
-    },
-    render: 'Wow! {name} {location}';
-}
-```
-
-```js
-
-await Schema.render({ name: 'hello' }); // provided you havent deleted data and you have created something like above
-// returns: Wow! hello world!
-```
 **API**
 
 update(searchData: object, updateData: object): Promise[Document]

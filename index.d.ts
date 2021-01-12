@@ -13,7 +13,6 @@ declare class DatabaseModule {
 	public leaderboard(sort: SortFunction): Promise<Array<Document>>;
 	public find(data: object): Promise<Array<Document>>;
 	public delete(data: object): Promise<boolean>;
-	public render(data: object): Promise<string>;
 }
 
 declare class Database {

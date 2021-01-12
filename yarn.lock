@@ -465,11 +465,6 @@ ci-info@^2.0.0:
   resolved "https://registry.yarnpkg.com/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
   integrity sha512-5tK7EtrZ0N+OLFMthtqOj4fI2Jeb88C4CAZPu25LDVUgXJ0A3Js4PMGqrn0JU1W0Mh1/Z8wZzYPxqUrXeBboCQ==
 
-cjays@^1.0.5:
-  version "1.0.5"
-  resolved "https://registry.yarnpkg.com/cjays/-/cjays-1.0.5.tgz#068c8685785742d78f5d5bd41df60ef8914965f6"
-  integrity sha512-oiGMUmoJsTv6xirCcSeSOc5487SoT5XRiYhkcT/2lSHMuuanfiPRBwKO2g6CRn1cp1XIDCfKLgOzds+4mFHcGA==
-
 clean-stack@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/clean-stack/-/clean-stack-2.2.0.tgz#ee8472dbb129e727b31e8a10a427dee9dfe4008b"

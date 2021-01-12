@@ -2,8 +2,6 @@ import { ParsedSchema } from './interfaces/DatabaseSchema';
 import { Document } from 'mongoose';
 import { Anything } from './interfaces/Anything';
 import { SortFunction } from './interfaces/SortFunction';
-import cjays from 'cjays';
-
 // database module
 class DatabaseModule {
 	public _schema: ParsedSchema;
@@ -77,12 +75,6 @@ class DatabaseModule {
 		// if no data, return false
 		else await Data.deleteOne(); // if exists delete
 		return true; // return true because the data exists & was deleted
-	}
-	public async render(data: object): Promise<string> {
-		const Data = await this.findOne(data); // get data
-		if (!Data) return '';
-		if (!this._schema.render) return '';
-		return cjays(this._schema.render, Data);
 	}
 }
 

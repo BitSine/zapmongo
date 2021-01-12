@@ -1,6 +1,6 @@
 {
 	"name": "zapmongo",
-	"version": "2.0.2",
+	"version": "2.0.3",
 	"description": "",
 	"main": "dist/index.js",
 	"scripts": {
@@ -68,7 +68,6 @@
 		}
 	},
 	"dependencies": {
-		"cjays": "^1.0.5",
 		"mongoose": "^5.10.11"
 	},
 	"types": "index.d.ts",
