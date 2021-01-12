@@ -7,5 +7,6 @@ interface DatabaseSchema {
 interface ParsedSchema {
 	name: string;
 	data: Model<Document>;
+	render?: string;
 }
 export { DatabaseSchema, ParsedSchema };
