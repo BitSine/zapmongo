@@ -79,7 +79,7 @@ Example:
 
 await Schema.render({ name: 'hello' }); // provided you havent deleted data and you have created something like above
 // returns: Wow! hello world!
-
+```
 **API**
 
 update(searchData: object, updateData: object): Promise[Document]
