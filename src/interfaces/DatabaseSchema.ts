@@ -2,6 +2,7 @@ import { Model, Document, SchemaDefinition } from 'mongoose';
 interface DatabaseSchema {
 	name: string;
 	data: SchemaDefinition;
+	render?: string;
 }
 
 interface ParsedSchema {
