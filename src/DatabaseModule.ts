@@ -35,11 +35,25 @@ class DatabaseModule {
 		if (!data) {
 			const newData: object = { ...search };
 			newData[key] = value;
-			return await this.create(newData);
+			return this.create(newData);
 		} else {
-			(data as Anything)[key] += value;
-			await data.save();
-			return data;
+			if ((data as Anything)[key]) {
+				if (isNaN((data as Anything)[key])) {
+					(data as Anything)[key] = value;
+					await data.save();
+					return data;
+				}
+
+				(data as Anything)[key]
+					? ((data as Anything)[key] += value)
+					: ((data as Anything)[key] = value);
+				await data.save();
+				return data;
+			} else {
+				(data as Anything)[key] = value;
+				await data.save();
+				return data;
+			}
 		}
 	}
 	public async decrement(
@@ -52,11 +66,25 @@ class DatabaseModule {
 		if (!data) {
 			const newData: object = { ...search };
 			newData[key] = -value;
-			return await this.create(newData);
+			return this.create(newData);
 		} else {
-			(data as Anything)[key] -= value;
-			await data.save();
-			return data;
+			if ((data as Anything)[key]) {
+				if (isNaN((data as Anything)[key]) || (data as Anything)[key] == undefined) {
+					(data as Anything)[key] = 0;
+					await data.save();
+					return data;
+				}
+				(data as Anything)[key] -= value;
+				if ((data as Anything)[key] < 0) {
+					(data as Anything)[key] = 0;
+				}
+				await data.save();
+				return data;
+			} else {
+				(data as Anything)[key] = 0;
+				await data.save();
+				return data;
+			}
 		}
 	}
 	public async leaderboard(sort: SortFunction): Promise<Array<Document>> {
@@ -75,6 +103,24 @@ class DatabaseModule {
 		// if no data, return false
 		else await Data.deleteOne(); // if exists delete
 		return true; // return true because the data exists & was deleted
+	}
+	public async push(search: object, key: string, value: any): Promise<Document> {
+		const data = await this.findOne(search);
+		if (!data) {
+			const data2 = { ...search };
+			data2[key] = [value];
+			return await this.create(data2);
+		} else if (!data[key]) {
+			const dataa = {};
+			dataa[key] = [value];
+			return await this.update(search, dataa);
+		} else {
+			const existing = data[key];
+			existing.push(value);
+			const obj = {};
+			obj[key] = existing;
+			return await this.update(search, obj);
+		}
 	}
 }
 

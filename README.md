@@ -70,3 +70,5 @@ delete(searchData: object): Promise[boolean]
 create(data: object): Promise[Document]
 
 increment,decrement(search: object, key: string, value: number): Promise[Document]
+
+push(search: object, key: string, value: any): Promise[Document]
